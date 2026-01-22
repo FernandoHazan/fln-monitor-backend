@@ -58,6 +58,8 @@ public class NoticiaService {
         return portalNoticiasDTO;
     }
 
+    //Melhorar logica das funções
+
     public PortalNoticiasDTO listarNoticiasPorPortalTop5(String fonte) {
 
         List<Noticia> noticiasBanco = noticiasRepository.findTop5ByFonteOrderByIdDesc(fonte);
