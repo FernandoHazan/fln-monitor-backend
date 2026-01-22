@@ -58,7 +58,7 @@ public class NoticiaService {
         return portalNoticiasDTO;
     }
 
-    //Melhorar logica das funções
+    //Melhorar logica das funções.
 
     public PortalNoticiasDTO listarNoticiasPorPortalTop5(String fonte) {
 
