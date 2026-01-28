@@ -37,7 +37,7 @@ public class ScrapingService {
     }
 
     public void importarScc10() {
-        log.info("Iniciando importação SCC10");
+        // log.info("Iniciando importação SCC10");
 
         try {
             List<Noticia> noticias = scc10Scraper.buscarNoticiasScc10();
@@ -53,11 +53,11 @@ public class ScrapingService {
             log.error("Erro crítico ao executar scraping do SCC10", e);
         }
 
-        log.info("Finalizada importação SCC10");
+        // log.info("Finalizada importação SCC10");
     }
 
     public void importarJornalRazao() {
-        log.info("Iniciando importação Jornal Razão");
+        // log.info("Iniciando importação Jornal Razão");
 
         try {
             List<Noticia> noticias = jornalRazaoScraper.buscarNoticiasJornalRazao();
@@ -73,11 +73,11 @@ public class ScrapingService {
             log.error("Erro crítico ao executar scraping do Jornal Razao", e);
         }
 
-        log.info("Finalizada importação Jornal Razao");
+        // log.info("Finalizada importação Jornal Razao");
     }
 
     public void importarNsctotal() {
-        log.info("Iniciando importação NSC Total");
+        // log.info("Iniciando importação NSC Total");
 
         try {
             List<Noticia> noticias = nscTotalScraper.buscarNoticiasNsctotal();
@@ -93,11 +93,11 @@ public class ScrapingService {
             log.error("Erro crítico ao executar scraping do NSC Total", e);
         }
 
-        log.info("Finalizada importação NSC Total");
+        // log.info("Finalizada importação NSC Total");
     }
 
     public void importarNd() {
-        log.info("Iniciando importação ND");
+        // log.info("Iniciando importação ND");
 
         try {
             List<Noticia> noticias = ndScraper.buscarNoticiasNd();
@@ -113,26 +113,26 @@ public class ScrapingService {
             log.error("Erro crítico ao executar scraping da ND", e);
         }
 
-        log.info("Finalizada importação ND");
+        // log.info("Finalizada importação ND");
     }
 
     private void salvarNoticias(List<Noticia> noticias, String fonte) {
-        int salvas = 0;
-        int duplicadas = 0;
-        int erros = 0;
+        // int salvas = 0;
+        // int duplicadas = 0;
+        // int erros = 0;
 
         for (Noticia noticia : noticias) {
             try {
                 if (repository.existsBylink(noticia.getLink())) {
-                    duplicadas++;
+                    // duplicadas++;
                     continue;
                 }
 
                 repository.save(noticia);
-                salvas++;
+                // salvas++;
 
             } catch (Exception e) {
-                erros++;
+                // erros++;
                 log.error(
                         "Erro ao salvar notícia [{}] da fonte {}",
                         noticia.getLink(),
@@ -142,10 +142,10 @@ public class ScrapingService {
             }
         }
 
-        log.info(
-                "Resumo {} -> Salvas: {}, Duplicadas: {}, Erros: {}",
-                fonte, salvas, duplicadas, erros
-        );
+        // log.info(
+        //        "Resumo {} -> Salvas: {}, Duplicadas: {}, Erros: {}",
+        //       fonte, salvas, duplicadas, erros
+        //);
     }
 }
 

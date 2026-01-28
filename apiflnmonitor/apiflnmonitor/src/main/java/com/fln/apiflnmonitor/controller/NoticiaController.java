@@ -1,5 +1,6 @@
 package com.fln.apiflnmonitor.controller;
 import com.fln.apiflnmonitor.model.NoticiaDTO;
+import com.fln.apiflnmonitor.model.NoticiasCountDTO;
 import com.fln.apiflnmonitor.model.PortalNoticiasDTO;
 import com.fln.apiflnmonitor.service.NoticiaService;
 import org.springframework.web.bind.annotation.*;
@@ -8,7 +9,7 @@ import java.util.List;
 
 
     @RestController
-    @RequestMapping("/api/scraping")
+    @RequestMapping("/api")
     public class NoticiaController {
 
         private final NoticiaService service;
@@ -19,8 +20,8 @@ import java.util.List;
 
         // 🔍 GET – listar tudo
         @GetMapping("/noticias")
-        public List<NoticiaDTO> listar() {
-            return service.listarNoticasPorData();
+        public NoticiasCountDTO listar() {
+            return service.listarNoticiasPorData();
         }
 
         @GetMapping("/scc10")
