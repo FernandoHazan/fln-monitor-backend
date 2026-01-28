@@ -19,6 +19,8 @@ public interface NoticiasRepository extends JpaRepository<Noticia, Long> {
 
     List<Noticia> findTop100ByFonteOrderByIdDesc(String fonte);
 
+    long countByFonte(String fonte);
+
     @Modifying
     @Transactional
     @Query("""

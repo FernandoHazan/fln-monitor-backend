@@ -24,13 +24,13 @@ public class LimpezaBancoScheduler {
     @Scheduled(cron = "0 0 * * * *")
     public void limparNoticiasAntigas() {
 
-        log.info("🧹 Iniciando limpeza de notícias antigas");
+        // log.info("🧹 Iniciando limpeza de notícias antigas");
 
         try {
             LocalDateTime limite = LocalDateTime.now().minusDays(1);
             int removidas = repository.deletarNoticiasAntigas(limite);
 
-            log.info("🧹 Limpeza concluída. Notícias removidas: {}", removidas);
+          //  log.info("🧹 Limpeza concluída. Notícias removidas: {}", removidas);
 
         } catch (Exception e) {
             log.error("❌ Erro ao executar limpeza de notícias antigas", e);

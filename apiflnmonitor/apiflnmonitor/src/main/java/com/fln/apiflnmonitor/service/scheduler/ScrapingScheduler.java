@@ -25,11 +25,11 @@ public class ScrapingScheduler {
     public void executarScraping() {
 
         if (!executando.compareAndSet(false, true)) {
-            log.warn("⏳ Scraping já em execução, ignorando nova chamada");
+          //  log.warn("⏳ Scraping já em execução, ignorando nova chamada");
             return;
         }
 
-        log.info("🔄 Iniciando scraping automático...");
+        // log.info("🔄 Iniciando scraping automático...");
 
         try {
             executarFonte("SCC10", scrapingService::importarScc10);
@@ -42,7 +42,7 @@ public class ScrapingScheduler {
 
         } finally {
             executando.set(false);
-            log.info("✅ Scraping finalizado");
+           // log.info("✅ Scraping finalizado");
         }
     }
 
