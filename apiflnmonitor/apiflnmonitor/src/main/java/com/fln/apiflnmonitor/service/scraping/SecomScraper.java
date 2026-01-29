@@ -13,17 +13,15 @@ import java.util.List;
 
 
 @Component
-public class Scc10Scraper {
+public class SecomScraper {
 
-    private static final String URL = "https://scc10.com.br/ultimas-noticias/";
+    private static final String URL = "https://estado.sc.gov.br/noticias/todas-as-noticias/";
     private static final int TIMEOUT_MS = 10_000;
 
-    private static final Logger log = LoggerFactory.getLogger(Scc10Scraper.class);
+    private static final Logger log = LoggerFactory.getLogger(SecomScraper.class);
 
-    public List<Noticia> buscarNoticiasScc10() {
+    public List<Noticia> buscarNoticiasSecom() {
         List<Noticia> noticias = new ArrayList<>();
-
-        log.info("Iniciando scraping do SCC10");
 
         try {
             Document doc = Jsoup.connect(URL)
@@ -32,31 +30,21 @@ public class Scc10Scraper {
                     .referrer("https://www.google.com")
                     .get();
 
-            Elements elementos = doc.select("section.article");
+            Elements elementos = doc.select("div.upk-item");
 
             if (elementos.isEmpty()) {
                 log.warn("Nenhuma notícia encontrada no SCC10 — layout pode ter mudado");
             }
 
-            log.info("Encontradas {} notícias no SCC10", elementos.size());
-
             for (Element el : elementos) {
                 try {
-                    String manchete = el.selectFirst("h2.article__title") != null
-                            ? el.selectFirst("h2.article__title").text()
+                    String manchete = el.selectFirst("a.title-animation-") != null
+                            ? el.selectFirst("a.title-animation-").text()
                             : "";
 
-                    String link = el.selectFirst("a.article__tiny") != null
-                            ? el.selectFirst("a.article__tiny").attr("href")
+                    String link = el.selectFirst("a.title-animation-") != null
+                            ? el.selectFirst("a.title-animation-").attr("href")
                             : "";
-
-                    String conteudo = el.selectFirst("p.article__content") != null
-                            ? el.selectFirst("p.article__content").text()
-                            : "";
-
-                    String tipo = el.selectFirst("a.compartilhar__link") != null
-                            ? el.selectFirst("a.compartilhar__link").text()
-                            : "N/A";
 
                     if (manchete.isBlank() || link.isBlank()) {
                         log.warn("Notícia ignorada por dados inválidos (titulo/link vazio)");
@@ -66,25 +54,21 @@ public class Scc10Scraper {
                     Noticia n = new Noticia();
                     n.setTitulo(manchete);
                     n.setLink(link);
-                    n.setConteudo(conteudo);
-                    n.setFonte("Scc10");
-                    n.setTipo(tipo);
-                    n.setOrgao("portal");
+                    n.setFonte("Secom");
+                    n.setOrgao("servico");
 
                     noticias.add(n);
 
                 } catch (Exception e) {
-                    log.error("Erro ao processar uma notícia do SCC10", e);
+                    log.error("Erro ao processar uma notícia do Secom", e);
                 }
             }
 
         } catch (IOException e) {
-            log.error("Erro ao conectar no site SCC10 - URL: {}", URL, e);
+            log.error("Erro ao conectar no site Secom - URL: {}", URL, e);
         } catch (Exception e) {
-            log.error("Erro inesperado no scraper do SCC10", e);
+            log.error("Erro inesperado no scraper do Secom", e);
         }
-
-        log.info("Scraping do SCC10 finalizado. Total de notícias válidas: {}", noticias.size());
 
         return noticias;
     }

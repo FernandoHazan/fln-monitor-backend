@@ -66,6 +66,7 @@ public class JornalRazaoScraper {
                     n.setTitulo(manchete);
                     n.setLink(link);
                     n.setFonte("Jornal Razão");
+                    n.setOrgao("portal");
 
                     noticias.add(n);
 

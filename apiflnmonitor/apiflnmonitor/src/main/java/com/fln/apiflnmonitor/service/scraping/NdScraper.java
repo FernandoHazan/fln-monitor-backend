@@ -65,6 +65,7 @@ public class NdScraper {
                     n.setTitulo(manchete);
                     n.setLink(link);
                     n.setFonte("ND");
+                    n.setOrgao("portal");
 
                     noticias.add(n);
 

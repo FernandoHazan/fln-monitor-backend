@@ -36,6 +36,9 @@ public class ScrapingScheduler {
             executarFonte("NSC Total", scrapingService::importarNsctotal);
             executarFonte("ND", scrapingService::importarNd);
             executarFonte("Jornal Razao", scrapingService::importarJornalRazao);
+            executarFonte("Secom", scrapingService::importarSecom);
+            executarFonte("Agora Floripa", scrapingService::importarAgoraFloripa);
+            executarFonte("Informe Floripa", scrapingService::importarInformeFloripa);
 
         } catch (Exception e) {
             log.error("❌ Erro inesperado no scheduler de scraping", e);

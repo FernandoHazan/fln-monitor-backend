@@ -1,10 +1,7 @@
 package com.fln.apiflnmonitor.service;
 import com.fln.apiflnmonitor.model.Noticia;
 import com.fln.apiflnmonitor.repository.NoticiasRepository;
-import com.fln.apiflnmonitor.service.scraping.JornalRazaoScraper;
-import com.fln.apiflnmonitor.service.scraping.NdScraper;
-import com.fln.apiflnmonitor.service.scraping.NscTotalScraper;
-import com.fln.apiflnmonitor.service.scraping.Scc10Scraper;
+import com.fln.apiflnmonitor.service.scraping.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -21,19 +18,28 @@ public class ScrapingService {
     private final NscTotalScraper nscTotalScraper;
     private final NdScraper ndScraper;
     private final JornalRazaoScraper jornalRazaoScraper;
+    private final SecomScraper secomScraper;
+    private final AgoraFloripaScraper agoraFloripaScraper;
+    private final InformeFloripaScraper informeFloripaScraper;
 
     public ScrapingService(
             Scc10Scraper scc10Scraper,
             NoticiasRepository repository,
             NscTotalScraper nscTotalScraper,
             NdScraper ndScraper,
-            JornalRazaoScraper jornalRazaoScraper) {
+            JornalRazaoScraper jornalRazaoScraper,
+            SecomScraper secomScraper,
+            AgoraFloripaScraper agoraFloripaScraper,
+            InformeFloripaScraper informeFloripaScraper) {
 
         this.scc10Scraper = scc10Scraper;
         this.repository = repository;
         this.nscTotalScraper = nscTotalScraper;
         this.ndScraper = ndScraper;
         this.jornalRazaoScraper = jornalRazaoScraper;
+        this.secomScraper = secomScraper;
+        this.agoraFloripaScraper = agoraFloripaScraper;
+        this.informeFloripaScraper = informeFloripaScraper;
     }
 
     public void importarScc10() {
@@ -114,6 +120,66 @@ public class ScrapingService {
         }
 
         // log.info("Finalizada importação ND");
+    }
+
+    public void importarSecom() {
+
+
+        try {
+            List<Noticia> noticias = secomScraper.buscarNoticiasSecom();
+
+            if (noticias == null || noticias.isEmpty()) {
+                log.warn("Nenhuma notícia retornada pelo Secom");
+                return;
+            }
+
+            salvarNoticias(noticias, "Secom");
+
+        } catch (Exception e) {
+            log.error("Erro crítico ao executar scraping do Secom", e);
+        }
+
+        log.info("Finalizada importação Secom");
+    }
+
+    public void importarAgoraFloripa() {
+
+
+        try {
+            List<Noticia> noticias = agoraFloripaScraper.buscarNoticiasAgoraFloripa();
+
+            if (noticias == null || noticias.isEmpty()) {
+                log.warn("Nenhuma notícia retornada pelo AgoraFloripa");
+                return;
+            }
+
+            salvarNoticias(noticias, "AgoraFloripa");
+
+        } catch (Exception e) {
+            log.error("Erro crítico ao executar scraping do AgoraFloripa", e);
+        }
+
+        log.info("Finalizada importação AgoraFloripa");
+    }
+
+    public void importarInformeFloripa() {
+
+
+        try {
+            List<Noticia> noticias = informeFloripaScraper.buscarNoticiasInformeFloripa();
+
+            if (noticias == null || noticias.isEmpty()) {
+                log.warn("Nenhuma notícia retornada pelo InformeFloripa");
+                return;
+            }
+
+            salvarNoticias(noticias, "InformeFloripa");
+
+        } catch (Exception e) {
+            log.error("Erro crítico ao executar scraping do InformeFloripa", e);
+        }
+
+        log.info("Finalizada importação InformeFloripa");
     }
 
     private void salvarNoticias(List<Noticia> noticias, String fonte) {

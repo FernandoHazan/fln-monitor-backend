@@ -19,6 +19,15 @@ public class Noticia {
     @Column(columnDefinition = "TEXT")
     private String conteudo;
     private String cidade;
+    private String orgao;
+
+    public String getOrgao() {
+        return orgao;
+    }
+
+    public void setOrgao(String orgao) {
+        this.orgao = orgao;
+    }
 
     public String getCidade() {
         return cidade;

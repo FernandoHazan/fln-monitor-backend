@@ -8,6 +8,7 @@ public record NoticiaDTO(  String titulo,
         LocalDateTime data,
         String fonte,
         String conteudo,
-        String cidade) {
+        String cidade,
+        String orgao                   ) {
 
 }

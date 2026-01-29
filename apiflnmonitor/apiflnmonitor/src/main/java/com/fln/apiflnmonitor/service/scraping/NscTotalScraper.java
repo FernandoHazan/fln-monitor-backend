@@ -65,6 +65,7 @@ public class NscTotalScraper {
                     n.setTitulo(manchete);
                     n.setLink(link);
                     n.setFonte("NSC Total");
+                    n.setOrgao("portal");
 
                     noticias.add(n);
 
