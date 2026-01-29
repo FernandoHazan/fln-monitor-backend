@@ -1,7 +1,5 @@
 package com.fln.apiflnmonitor.service;
-import com.fln.apiflnmonitor.model.Noticia;
-import com.fln.apiflnmonitor.model.NoticiaDTO;
-import com.fln.apiflnmonitor.model.PortalNoticiasDTO;
+import com.fln.apiflnmonitor.model.*;
 import com.fln.apiflnmonitor.repository.NoticiasRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,16 +12,15 @@ public class NoticiaService {
 
     @Autowired
     private final NoticiasRepository noticiasRepository;
-    private final ScrapingService scrapingService;
 
-    public NoticiaService(NoticiasRepository noticiasRepository, ScrapingService scrapingService) {
+    public NoticiaService(NoticiasRepository noticiasRepository) {
         this.noticiasRepository = noticiasRepository;
-        this.scrapingService = scrapingService;
     }
 
-    public List<NoticiaDTO> listarNoticasPorData() {
+    public NoticiasCountDTO listarNoticasPorData() {
 
         List<Noticia> noticiasBanco = noticiasRepository.findTop100ByOrderByDataDesc();
+        Long numeroDeNoticias = noticiasRepository.count();
         List<NoticiaDTO> noticiasDTO = noticiasBanco.stream()
                 .map(noticia -> new NoticiaDTO(
                         noticia.getTitulo(),
@@ -36,12 +33,13 @@ public class NoticiaService {
                 ))
                 .toList();
 
-        return noticiasDTO;
+        return new NoticiasCountDTO(numeroDeNoticias, noticiasDTO);
     }
 
     public PortalNoticiasDTO listarNoticiasPorPortal(String fonte) {
 
         List<Noticia> noticiasBanco = noticiasRepository.findTop100ByFonteOrderByIdDesc(fonte);
+        long numeroDeNoticias = noticiasRepository.countByFonte(fonte);
         List<NoticiaDTO> noticiasDTO = noticiasBanco.stream()
                 .map(noticia -> new NoticiaDTO(
                         noticia.getTitulo(),
@@ -54,8 +52,7 @@ public class NoticiaService {
                 ))
                 .toList();
 
-        PortalNoticiasDTO portalNoticiasDTO = new PortalNoticiasDTO(fonte, noticiasDTO);
-        return portalNoticiasDTO;
+        return new PortalNoticiasDTO(fonte, noticiasDTO, numeroDeNoticias);
     }
 
     //Melhorar logica das funções.
@@ -63,6 +60,7 @@ public class NoticiaService {
     public PortalNoticiasDTO listarNoticiasPorPortalTop5(String fonte) {
 
         List<Noticia> noticiasBanco = noticiasRepository.findTop5ByFonteOrderByIdDesc(fonte);
+        long numeroDeNoticias = noticiasRepository.countByFonte(fonte);
         List<NoticiaDTO> noticiasDTO = noticiasBanco.stream()
                 .map(noticia -> new NoticiaDTO(
                         noticia.getTitulo(),
@@ -75,17 +73,18 @@ public class NoticiaService {
                 ))
                 .toList();
 
-        PortalNoticiasDTO portalNoticiasDTO = new PortalNoticiasDTO(fonte, noticiasDTO);
-        return portalNoticiasDTO;
+        return new PortalNoticiasDTO(fonte, noticiasDTO, numeroDeNoticias);
     }
 
-    public List<PortalNoticiasDTO> listarNoticiasPortais() {
+    public PortalNoticiasCountDTO listarNoticiasPortais() {
         List<PortalNoticiasDTO> portalNoticiasDTO = new ArrayList<>();
+        Long numeroDeNoticias = noticiasRepository.count();
         portalNoticiasDTO.add(listarNoticiasPorPortalTop5("Scc10"));
         portalNoticiasDTO.add(listarNoticiasPorPortalTop5("NSC Total"));
         portalNoticiasDTO.add(listarNoticiasPorPortalTop5("ND"));
         portalNoticiasDTO.add(listarNoticiasPorPortalTop5("Jornal Razão"));
-        return portalNoticiasDTO;
+
+        return new PortalNoticiasCountDTO(numeroDeNoticias, portalNoticiasDTO);
     }
 }
 
