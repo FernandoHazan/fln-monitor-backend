@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0495516c-c34c-4bd4-9846-4b219de9a719" name="Changes" comment="Atualização 0.5, melhorias da versão: Agora o Json trás o total de noticias nas ultimas 24 horas isso para todas as rotas, caminho das rotas refatorados, service do scraping refatorado para enviar noticias nas ultimas 24 horas e correção no nome de algumas funções.">
-      <change afterPath="$PROJECT_DIR$/apiflnmonitor/src/main/java/com/fln/apiflnmonitor/model/PortalNoticiasCountDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apiflnmonitor/src/main/java/com/fln/apiflnmonitor/controller/NoticiaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/apiflnmonitor/src/main/java/com/fln/apiflnmonitor/controller/NoticiaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apiflnmonitor/src/main/java/com/fln/apiflnmonitor/service/NoticiaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/apiflnmonitor/src/main/java/com/fln/apiflnmonitor/service/NoticiaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apiflnmonitor/src/main/java/com/fln/apiflnmonitor/service/scheduler/ScrapingScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/apiflnmonitor/src/main/java/com/fln/apiflnmonitor/service/scheduler/ScrapingScheduler.java" afterDir="false" />
-    </list>
+    <list default="true" id="0495516c-c34c-4bd4-9846-4b219de9a719" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,26 +13,14 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Record" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;FernandoHazan&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/FernandoHazan/fln-monitor-backend&quot;,
-    &quot;accountId&quot;: &quot;6cf8e2b3-03e8-4e03-81eb-9a6928152734&quot;
-  }
-}</component>
   <component name="ProblemsViewState">
     <option name="autoscrollToSource" value="true" />
   </component>
@@ -50,19 +32,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.ApiflnmonitorApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.apiflnmonitor [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.apiflnmonitor [package].executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Fernando/Documents/MeusProjetos/FULLSTACK FLN MONITOR/fln-monitor-backend/apiflnmonitor&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.ApiflnmonitorApplication.executor": "Run",
+    "Maven.apiflnmonitor [clean].executor": "Run",
+    "Maven.apiflnmonitor [package].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/Fernando/Documents/MeusProjetos/FULLSTACK FLN MONITOR/fln-monitor-backend/apiflnmonitor"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Fernando\Documents\MeusProjetos\FULLSTACK FLN MONITOR\fln-monitor-backend\apiflnmonitor\apiflnmonitor" />
@@ -79,102 +61,6 @@
       <option name="presentableId" value="Default" />
       <updated>1766024141141</updated>
     </task>
-    <task id="LOCAL-00001" summary="Primeiro commit backend do FLN-MONITOR, todos os arquivos da versão 0.4 da api/scraper">
-      <option name="closed" value="true" />
-      <created>1768966558741</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1768966558741</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Primeiro commit backend do FLN-MONITOR, todos os arquivos da versão 0.4 da api/scraper">
-      <option name="closed" value="true" />
-      <created>1768966728283</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1768966728283</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Primeiro commit backend do FLN-MONITOR, todos os arquivos da versão 0.4 da api/scraper">
-      <option name="closed" value="true" />
-      <created>1768966835932</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1768966835932</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Primeiro commit backend do FLN-MONITOR, todos os arquivos da versão 0.4 da api/scraper">
-      <option name="closed" value="true" />
-      <created>1768966865155</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1768966865155</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Commite para teste de atualização do servidor via github">
-      <option name="closed" value="true" />
-      <created>1769043968281</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1769043968281</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Commite para teste de atualização do servidor via github">
-      <option name="closed" value="true" />
-      <created>1769043991607</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1769043991607</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Commite para teste de atualização do servidor via github 2">
-      <option name="closed" value="true" />
-      <created>1769044427347</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1769044427347</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Commite para teste de atualização do servidor via github 2">
-      <option name="closed" value="true" />
-      <created>1769044449760</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1769044449760</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Atualização 0.5, melhorias da versão: Agora o Json trás o total de noticias nas ultimas 24 horas isso para todas as rotas, caminho das rotas refatorados, service do scraping refatorado para enviar noticias nas ultimas 24 horas e correção no nome de algumas funções.">
-      <option name="closed" value="true" />
-      <created>1769611854585</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1769611854585</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Atualização 0.5, melhorias da versão: Agora o Json trás o total de noticias nas ultimas 24 horas isso para todas as rotas, caminho das rotas refatorados, service do scraping refatorado para enviar noticias nas ultimas 24 horas e correção no nome de algumas funções.">
-      <option name="closed" value="true" />
-      <created>1769611878170</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1769611878170</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Atualização 0.5, melhorias da versão: Agora o Json trás o total de noticias nas ultimas 24 horas isso para todas as rotas, caminho das rotas refatorados, service do scraping refatorado para enviar noticias nas ultimas 24 horas e correção no nome de algumas funções.">
-      <option name="closed" value="true" />
-      <created>1769612034800</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1769612034800</updated>
-    </task>
-    <option name="localTasksCounter" value="12" />
     <servers />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Primeiro commit backend do FLN-MONITOR, todos os arquivos da versão 0.4 da api/scraper" />
-    <MESSAGE value="Commite para teste de atualização do servidor via github" />
-    <MESSAGE value="Commite para teste de atualização do servidor via github 2" />
-    <MESSAGE value="Atualização 0.5, melhorias da versão: Agora o Json trás o total de noticias nas ultimas 24 horas isso para todas as rotas, caminho das rotas refatorados, service do scraping refatorado para enviar noticias nas ultimas 24 horas e correção no nome de algumas funções." />
-    <option name="LAST_COMMIT_MESSAGE" value="Atualização 0.5, melhorias da versão: Agora o Json trás o total de noticias nas ultimas 24 horas isso para todas as rotas, caminho das rotas refatorados, service do scraping refatorado para enviar noticias nas ultimas 24 horas e correção no nome de algumas funções." />
   </component>
 </project>
