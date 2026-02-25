@@ -1,15 +1,14 @@
 package com.fln.apiflnmonitor.controller;
-import com.fln.apiflnmonitor.model.NoticiasCountDTO;
-import com.fln.apiflnmonitor.model.PortalEServicosDTO;
-import com.fln.apiflnmonitor.model.PortalNoticiasCountDTO;
+import com.fln.apiflnmonitor.model.NoticiaDTO;
 import com.fln.apiflnmonitor.model.PortalNoticiasDTO;
 import com.fln.apiflnmonitor.service.NoticiaService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 
 
     @RestController
-    @RequestMapping("/api")
+    @RequestMapping("/api/scraping")
     public class NoticiaController {
 
         private final NoticiaService service;
@@ -20,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 
         // 🔍 GET – listar tudo
         @GetMapping("/noticias")
-        public NoticiasCountDTO listar() {
+        public List<NoticiaDTO> listar() {
             return service.listarNoticasPorData();
         }
 
@@ -36,10 +35,9 @@ import org.springframework.web.bind.annotation.*;
         @GetMapping("/jornalrazao")
         public PortalNoticiasDTO listarjornalRazao() { return  service.listarNoticiasPorPortal("Jornal Razão");}
 
-        @GetMapping("/portaisEservicos")
-        public PortalEServicosDTO listarportaiseservicos() { return service.listarportaiseservicos();}
-
         @GetMapping("/portais")
-        public PortalNoticiasCountDTO listarportais() { return service.listarNoticiasPortais();}
+        public List<PortalNoticiasDTO> listarportais() { return service.listarNoticiasPortais();}
+
+
     }
 
