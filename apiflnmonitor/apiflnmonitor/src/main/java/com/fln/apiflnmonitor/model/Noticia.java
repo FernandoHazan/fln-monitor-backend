@@ -1,7 +1,5 @@
 package com.fln.apiflnmonitor.model;
-
 import jakarta.persistence.*;
-
 import java.time.LocalDateTime;
 
 @Entity
@@ -56,7 +54,6 @@ public class Noticia {
     public LocalDateTime getData() {
         return data;
     }
-
 
     public String getTipo() {
         return tipo;

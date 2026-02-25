@@ -3,11 +3,9 @@ import com.fln.apiflnmonitor.model.*;
 import com.fln.apiflnmonitor.service.NoticiaService;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
-
-    @RestController
-    @RequestMapping("/api/scraping")
+@RestController
+    @RequestMapping("/api")
     public class NoticiaController {
 
         private final NoticiaService service;
@@ -16,7 +14,6 @@ import java.util.List;
             this.service = service;
         }
 
-        // 🔍 GET – listar tudo
         @GetMapping("/noticias")
         public NoticiasCountDTO listar() {
             return service.listarNoticasPorData();
@@ -26,7 +23,7 @@ import java.util.List;
         public PortalNoticiasDTO listarscc10() { return service.listarNoticiasPorPortal("Scc10");}
 
         @GetMapping("/nsctotal")
-        public PortalNoticiasDTO listarnsctotal() { return service.listarNoticiasPorPortal("NSC Total"); }
+        public PortalNoticiasDTO listarnscTotal() { return service.listarNoticiasPorPortal("NSC Total"); }
 
         @GetMapping("/nd")
         public PortalNoticiasDTO listarnd() { return  service.listarNoticiasPorPortal("ND");}
@@ -34,10 +31,19 @@ import java.util.List;
         @GetMapping("/jornalrazao")
         public PortalNoticiasDTO listarjornalRazao() { return  service.listarNoticiasPorPortal("Jornal Razão");}
 
+        @GetMapping("/secom")
+        public PortalNoticiasDTO listarsecom() { return  service.listarNoticiasPorPortal("Secom");}
+
+        @GetMapping("/agorafloripa")
+        public PortalNoticiasDTO listaragoraFloripa() { return  service.listarNoticiasPorPortal("Agora Floripa");}
+
+        @GetMapping("/informefloripa")
+        public PortalNoticiasDTO listarinformeFloripa() { return  service.listarNoticiasPorPortal("Informe Floripa");}
+
         @GetMapping("/portais")
         public PortalNoticiasCountDTO listarportais() { return service.listarNoticiasPortais();}
 
         @GetMapping("/portaisEservicos")
-        public PortalEServicosDTO listarportaiseservicos() { return  service.listarportaiseservicos();}
+        public PortalEServicosDTO listarportaisEServicos() { return  service.listarPortaisEServicos();}
     }
 
